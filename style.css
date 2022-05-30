@@ -1,0 +1,94 @@
+@font-face {
+    font-family: asimov;;
+    src: url(./assets/asimov-font/Asimov-MwEn.otf);
+}
+
+html, body {
+    height: 100%;
+    font-family: asimov, Arial, Helvetica, sans-serif ;
+
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-rows: 15% auto auto;
+    grid-template-areas: "navigation header header header" "navigation projects projects announcements" 
+    "navigation projects projects trending";
+}
+
+.header {
+    background-color: #E0E7FF;
+    grid-area: header;
+}
+
+.navigation {
+    background-color: #312E81;
+    grid-area: navigation;
+    display: grid;
+    grid-template-rows: 45% 5% 25% auto;
+    grid-template-areas: "navigation-menu" "." "navigation-settings" ".";
+    color: white;
+    gap: 10px;
+    }
+
+.navigation a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    align-self: center;
+}
+
+#dashboard {
+    font-size: 1.75rem;
+}
+
+svg {
+    justify-self: center;
+}
+
+.navigation-menu {    
+    grid-area: navigation-menu;
+    display: grid;
+    grid-template-rows: 30% auto auto auto auto auto auto;
+    
+}
+
+
+
+.navigation-settings {    
+    grid-area: navigation-settings;   
+    
+}
+
+.navigation-settings-menu {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    align-content: space-evenly;
+}
+
+.projects {
+    background-color: #A5B4FC;
+    grid-area: projects;
+}
+
+.annoucements {
+    background-color: #A5B4FC;
+    grid-area: announcements;
+}
+
+.trending {
+    background-color: #A5B4FC;
+    grid-area: trending;
+    display: flex;
+    flex-direction: column;
+}
+
+.trending div {
+    flex-basis: 100%;
+}
