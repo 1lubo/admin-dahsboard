@@ -1,11 +1,17 @@
 @font-face {
-    font-family: asimov;;
-    src: url(./assets/asimov-font/Asimov-MwEn.otf);
+    font-family: kelvetica;
+    src: url(./assets/KelveticaNobis-A5z6.ttf);
+
+    font-family: asimov-nlg;
+    src: url(./assets/asimov-font/Asimov-nlg.ttf);
+
+    font-family: platnomor;
+    src: url(./assets/PlatNomor-WyVnn.ttf);
 }
 
 html, body {
     height: 100%;
-    font-family: asimov, Arial, Helvetica, sans-serif ;
+    font-family: platnomor, Arial, Helvetica, sans-serif, serif ;
 
 }
 
@@ -13,25 +19,137 @@ html, body {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 15% 35% 35% 15%;
-    grid-template-rows: 15% auto auto;
-    grid-template-areas: "navigation header header header" "navigation projects projects announcements" 
-    "navigation projects projects trending";
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 18% 39% 39%;
+    grid-template-areas: "navigation header header header" "navigation projects projects announcements_trending" 
+    "navigation projects projects announcements_trending";
 }
 
 .header {
-    background-color: #E0E7FF;
+    height: 100%;
+    background-color: #fcfcfc;
     grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40% auto;
+    grid-template-areas: "left . right" "left . right";
+    border-bottom: 1px gray;
+    box-shadow: 0px 4px 2px 0px #C9c7c7;
 }
 
+.left {
+    grid-area: left;
+}
+
+.right {
+    grid-area: right;
+}
+
+.left, .right {
+    height: 100%;
+}
+.header .left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;    
+    margin-left: 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.header .greetings {
+    display: grid;
+    grid-template-columns: 30% 70%;    
+    grid-template-areas: "profile-picture greeting" "profile-picture username";
+}
+
+.greetings .profile-picture {
+    grid-area: profile-picture;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.greetings img {
+    border-radius: 50%;
+    height: 50px;
+    width: auto;
+}
+
+.greetings .hello {
+    grid-area: greeting;
+    font-size: 0.85rem;
+}
+
+.greetings .username {
+    grid-area: username;
+    margin-top: 5px;
+}
+
+.right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.right .top {
+    display: grid;
+    grid-template-columns: 25% 25% auto;
+    align-items: center;
+
+}
+
+.top .notification-button {
+    justify-self: end;
+    
+}
+
+.top .profile-picture {
+    justify-self: center;
+}
+
+.top img {
+    border-radius: 50%;
+    height: 40px;
+    width: auto;
+    justify-self: center;
+}
+
+.top .username {
+    justify-self: start;
+}
+
+.right .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.right .bottom a {
+    all: unset;
+    text-decoration: none;    
+    background-color: #312E81;
+    width: 6rem;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* searchbar html and css from  https://pagedart.com/blog/how-to-add-a-search-bar-in-html/ */
+
 .header form {
-    background-color: #4654e1;
+    /*background-color: #4654e1;*/
     width: 300px;
     height: 44px;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  .header form:focus-within {
+      border: 1px inset rgba(51, 50, 50, 0.219);
   }
 
   .header input {
@@ -51,16 +169,17 @@ html, body {
   }
 
   .header svg {
-    color: #fff;
+    color: rgb(71, 70, 70);
     fill: currentColor;
     width: 24px;
     height: 24px;
     padding: 10px;
   }
-  
+ /* searchbar html and css from  https://pagedart.com/blog/how-to-add-a-search-bar-in-html/ */ 
 
 .navigation {
-    background-color: #312E81;
+    
+    background-image: linear-gradient(120deg, #020204, #5538cd);
     grid-area: navigation;
     display: grid;
     grid-template-rows: 45% 5% 25% auto;
@@ -93,8 +212,6 @@ svg {
     
 }
 
-
-
 .navigation-settings {    
     grid-area: navigation-settings;   
     
@@ -108,22 +225,171 @@ svg {
 }
 
 .projects {
-    background-color: #A5B4FC;
+    background-color: #d6dcf1;
     grid-area: projects;
+    margin-top: 4px; 
+    padding: 10px;   
+    overflow-y: hidden;   
+}
+
+.projects .heading {
+    font-size: 1.5rem
+}
+
+.cards-wrapper {
+    margin-top: 10px;
+    padding: 0 10px 10px 10px;
+    display: grid;    
+    grid-template-columns: repeat(auto-fill, minmax(50ch, 1fr));
+    gap: 15px;
+    height: 100%;
+    
+    
+}
+
+.card {
+    border-radius: 10px;
+    height: 250px;
+    box-shadow: 2px 4px 5px 0px #2a2e31;
+    border-left: 7px solid #56c51e;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-rows: 20% 65% 15%;
+
+}
+
+.card h3,
+.card p {
+    padding: 0 5px 0 5px;
+}
+
+.card p {
+    font-size: 0.85em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #878282;
+}
+
+.card-options {
+    display: flex;  
+    justify-content: flex-end;  
+}
+
+
+
+.card-options a {
+    text-decoration: none;
+    color: #4e4b4b;
+    padding: 0 10px;
+}
+
+.announcements_trending {
+    margin-top: 4px;     
+    background-color: #d6dcf1;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-area: announcements_trending;
+    grid-template-areas: "announcements" "trending";
+    gap: 10px
 }
 
 .annoucements {
-    background-color: #A5B4FC;
     grid-area: announcements;
+    background-color: #d6dcf1;    
+    margin-top: 4px;
+    padding-top: 10px;
+    width: 85%;
+    max-height: 340px;
+
+}
+.annoucements .heading {
+  margin: 10px 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.announcements-wrapper {
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    background-color: #ffffff;
+    height: 100%;
+    max-height: 290px;    
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px 0px #2a2e31;   
+    padding: 5px 10px 0px 10px; 
+}
+
+.announcements-wrapper :nth-child(3) {
+    
+    box-shadow: inset 0px 1px 0px 0px #7D897E;
+}
+
+.announcements-card {    
+    border-bottom: 1px black;
+    padding: 5px;
+}
+
+.announcements-card h4 {
+    font-size: 00.85em;
+    margin: 5px 0 2px 0;
+}
+
+.announcements-card p {
+    font-size: 0.7rem;
+    margin: 2px 0 5px 0;
+    color: #878282;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .trending {
-    background-color: #A5B4FC;
     grid-area: trending;
-    display: flex;
-    flex-direction: column;
+    width: 85%;
+    max-height: 90%;
 }
 
-.trending div {
-    flex-basis: 100%;
+.trending .heading {
+    margin: 10px 0 10px 0;
+    font-size: 1.5rem
+}
+
+.trending-wrapper {
+    background-color: #ffffff;
+    grid-area: trending;
+    height: 100%;
+    max-height: 290px;    
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px 0px #2a2e31;
+}
+
+.trending-card {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "profile-picture handle" "profile-picture projectname";
+}
+
+.trending-profile-picture {
+    grid-area: profile-picture;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+.trending-handle {
+    grid-area: handle;
+    font-size: 0.9rem;
+    align-self: flex-end;
+    padding-bottom: 3px;
+}
+
+.trending-projectname {
+    grid-area: projectname;
+    font-size: 0.85rem;
+    color: #878282;
+}
+
+.trending img {
+    height: 40px;
+    border-radius: 50%;
 }
