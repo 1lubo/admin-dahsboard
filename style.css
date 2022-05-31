@@ -142,6 +142,10 @@ html, body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-radius: 11px;
+    background-color: #cfcccc;
+    width: 50ch;
+    min-width: 25ch;
   }
 
   .header form:focus-within {
