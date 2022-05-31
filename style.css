@@ -1,9 +1,4 @@
-@font-face {
-    font-family: kelvetica;
-    src: url(./assets/KelveticaNobis-A5z6.ttf);
-
-    font-family: asimov-nlg;
-    src: url(./assets/asimov-font/Asimov-nlg.ttf);
+@font-face {  
 
     font-family: platnomor;
     src: url(./assets/PlatNomor-WyVnn.ttf);
@@ -45,9 +40,6 @@ html, body {
     grid-area: right;
 }
 
-.left, .right {
-    height: 100%;
-}
 .header .left {
     display: grid;
     grid-template-rows: 1fr 1fr;    
@@ -65,13 +57,15 @@ html, body {
 .greetings .profile-picture {
     grid-area: profile-picture;
     display:flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .greetings img {
     border-radius: 50%;
     height: 50px;
     width: auto;
+    padding: 5px;
+    background-color: #db281f;
 }
 
 .greetings .hello {
@@ -82,6 +76,7 @@ html, body {
 .greetings .username {
     grid-area: username;
     margin-top: 5px;
+    min-width: max-content;
 }
 
 .right {
@@ -108,10 +103,12 @@ html, body {
 }
 
 .top img {
+    padding: 5px;
     border-radius: 50%;
     height: 40px;
     width: auto;
     justify-self: center;
+    background-color: #db281f;
 }
 
 .top .username {
@@ -138,8 +135,7 @@ html, body {
 
 /* searchbar html and css from  https://pagedart.com/blog/how-to-add-a-search-bar-in-html/ */
 
-.header form {
-    /*background-color: #4654e1;*/
+.header form {    
     width: 300px;
     height: 44px;
     border-radius: 5px;
@@ -175,11 +171,10 @@ html, body {
     height: 24px;
     padding: 10px;
   }
- /* searchbar html and css from  https://pagedart.com/blog/how-to-add-a-search-bar-in-html/ */ 
+ 
 
 .navigation {
-    
-    background-image: linear-gradient(120deg, #020204, #5538cd);
+        background-image: linear-gradient(120deg, #020204, #5538cd);
     grid-area: navigation;
     display: grid;
     grid-template-rows: 45% 5% 25% auto;
@@ -197,10 +192,6 @@ html, body {
     align-self: center;
 }
 
-#dashboard {
-    font-size: 1.75rem;
-}
-
 svg {
     justify-self: center;
 }
@@ -208,8 +199,11 @@ svg {
 .navigation-menu {    
     grid-area: navigation-menu;
     display: grid;
-    grid-template-rows: 30% auto auto auto auto auto auto;
-    
+    grid-template-rows: 30% auto auto auto auto auto auto;    
+}
+
+.navigation-menu :first-child {
+    font-size: 1.75rem;
 }
 
 .navigation-settings {    
@@ -273,8 +267,6 @@ svg {
     display: flex;  
     justify-content: flex-end;  
 }
-
-
 
 .card-options a {
     text-decoration: none;
@@ -401,4 +393,21 @@ svg {
 .trending img {
     height: 40px;
     border-radius: 50%;
+    padding: 4px;
+}
+
+#one {
+    background-color: #b0b83f;
+}
+
+#two {
+    background-color: #db281f;
+}
+
+#three{
+    background-color: #2727a7;
+}
+
+#four {
+    background-color: #b62eb6;
 }
